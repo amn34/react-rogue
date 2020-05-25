@@ -25,7 +25,7 @@ class Stairs extends Entity {
             //improves the stats of each monster in the game. 
             spawner.MonsterTable.forEach(monster => {
                 monster.health += 5 * world.level;
-                monster.attack += 3 * world.level;
+                monster.attack += 5 * world.level;
                 monster.defense += 2 * world.level;
                 monster.reward += 1 * world.level;
             });
@@ -33,6 +33,7 @@ class Stairs extends Entity {
             spawner.spawnLoot(10);
             spawner.spawnMonsters(6);
             spawner.spawnStairs();
+            spawner.spawnShopKeeper();
         }
     }
 
