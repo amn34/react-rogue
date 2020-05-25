@@ -3,23 +3,25 @@ import Monster from "./Monster";
 import Stairs from "./Stairs";
 
 
-const MonsterTable = [
-    {name: 'Ogre', color: 'lightgrey', ascii: 'O', offset: {x: 2, y: 3}, health: 6},
-    {name: 'Snake', color: 'green', ascii: 'S', offset: {x: 2, y: 3}, health: 3},
-    {name: 'Rat', color: 'darkgrey', ascii: 'R', offset: {x: 2, y: 3}, health: 2},
-    {name: 'Penguin', color: 'blue', ascii: 'P', offset: {x: 2, y: 3}, health: 10},
-];
 
-const lootTable = [
-    {name: 'Long Sword', color: 'darkgrey', ascii: '/', offset: {x: 6, y: 3}},
-    {name: 'Health Potion', color: 'red', ascii: '!', offset: {x: 6, y: 3}},
-    {name: 'Gold coin', color: 'yellow', ascii: '$', offset: {x: 3, y: 3}},
-    {name: 'Light Armor', color: 'lightgrey', ascii: '#', offset: {x: 4, y: 3}}  
-];
 
 class Spawner {
+    
     constructor(world) {
         this.world = world;
+        this.MonsterTable = [
+            {type: 'monster', name: 'Ogre', color: 'lightgrey', ascii: 'O', offset: {x: 2, y: 3}, health: 6, attack: 2, defense: 0},
+            {type: 'monster', name: 'Snake', color: 'green', ascii: 'S', offset: {x: 2, y: 3}, health: 3, attack: 2, defense: 0},
+            {type: 'monster', name: 'Rat', color: 'darkgrey', ascii: 'R', offset: {x: 2, y: 3}, health: 2, attack: 1, defense: 0},
+            {type: 'monster', name: 'Penguin', color: 'blue', ascii: 'P', offset: {x: 2, y: 3}, health: 10, attack: 3, defense: 0},
+        ];
+        
+        this.lootTable = [
+            {type: 'item', name: 'Sword', color: 'darkgrey', ascii: '/', offset: {x: 6, y: 3}},
+            {type: 'item', name: 'Potion', color: 'red', ascii: '!', offset: {x: 6, y: 3}},
+            {type: 'item', name: 'Gold', color: 'yellow', ascii: '$', offset: {x: 3, y: 3}},
+            {type: 'item', name: 'Armor', color: 'lightgrey', ascii: '#', offset: {x: 4, y: 3}}  
+        ];
     }
 
     spawn(spawnCount, createEntity) {
@@ -36,7 +38,7 @@ class Spawner {
                 getRandomInt(this.world.width - 1),
                 getRandomInt(this.world.height - 1),
                 this.world.tileSize,
-                lootTable[getRandomInt(lootTable.length)]);
+                this.lootTable[getRandomInt(this.lootTable.length)]);
         });
     }
 
@@ -46,7 +48,7 @@ class Spawner {
                 getRandomInt(this.world.width - 1),
                 getRandomInt(this.world.height - 1),
                 this.world.tileSize,
-                MonsterTable[getRandomInt(lootTable.length)]);
+                this.MonsterTable[getRandomInt(this.lootTable.length)]);
         });
     }
 
@@ -63,7 +65,5 @@ class Spawner {
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
-
-
 
 export default Spawner;

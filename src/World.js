@@ -8,7 +8,8 @@ class World {
         this.height = height;
         this.tileSize = tileSize;
         this.entities = [new Player(0,0,16)];
-        this.history = ['You have entered the dungeon', '---'];
+        this.level = 0;
+        this.history = [];
 
 
         this.worldmap = new Array(this.width);
@@ -63,13 +64,42 @@ class World {
             entity.action('bump', this);
             return;
         }
-
         if (this.isWall(tempPlayer.x, tempPlayer.y)) {
             console.log(`Way blocked at ${tempPlayer.x}:${tempPlayer.y}!`);
         } else {
             this.player.move(dx,dy);
         }
     }
+
+    moveMonsters(world) {
+        this.entities.filter(entity => entity.attributes.type === 'monster').forEach(monster => {
+            let tempMonster = monster.copyMonster();
+            let vector = this.chooseMonsterDirection();
+            let dx = vector.x;
+            let dy = vector.y;
+            tempMonster.move(dx,dy);
+            console.log('move monster');
+            let entity = this.getEntityAtLocation(tempMonster.x, tempMonster.y);
+            if(entity === this.player) {
+                monster.attackPlayer(world);
+                return;
+            } else if(entity) {
+                return;
+            }
+            if(!this.isWall(tempMonster.x, tempMonster.y)) {
+                monster.move(dx,dy)
+            }
+        });
+    }
+
+    chooseMonsterDirection() {
+        let rand = Math.floor(Math.random() * 4) + 1;
+        if(rand === 1) return {x:1,y:0};
+        if(rand === 2) return {x:-1,y:0};
+        if(rand === 3) return {x:0,y:1};
+        if(rand === 4) return {x:0,y:-1};
+    }
+
 
     createCellularMap() {
         let map = new Map.Cellular(this.width, this.height, {connected:true});

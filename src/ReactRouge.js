@@ -1,19 +1,19 @@
-import React,{useRef, useEffect, useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import InputManager from './InputManager.js';
 import World from './World.js';
 import Spawner  from './Spawner.js';
 
 const ReactRouge  = ({width, height, tileSize}) => { 
     const canvasRef = React.useRef(null);
-    //passes back the intial state of the player and a method to change the player
-    //const[player, setPlayer] = useState(new Player(1,2,tileSize));
     const[world, setWorld] = useState(new World(width, height, tileSize)); 
     let inputManager = new InputManager();
+
     const handleInput = (action, data) => {
         console.log(`handle input: ${action}:${JSON.stringify(data)}`);
         let newWorld = new World();
         Object.assign(newWorld, world); //deep copy?
         newWorld.movePlayer(data.x, data.y);
+        newWorld.moveMonsters(world);
         setWorld(newWorld);
     };
 
@@ -47,21 +47,29 @@ const ReactRouge  = ({width, height, tileSize}) => {
         ctx.clearRect(0,0,width * tileSize, height * tileSize);
         world.draw(ctx, tileSize);
     });
-    return (
-    <>
-    <canvas 
-        ref = {canvasRef}
-        width = {width * tileSize}  
-        height = {height * tileSize}
-        style = {{border: '1px solid black', background: 'DimGray'}}
-    ></canvas> 
-    <ul>
-        {world.player.inventory.map((item, index) => (<li key = {index}>{item.attributes.name}</li>))} 
-    </ul>
-    <ul>
-        {world.history.map((item, index) => (<li key = {index}>{item}</li>))} 
-    </ul>
-    </>
+
+
+    return (         
+    <div style = {{display: 'flex'}}>
+        <ul style = {{padding: '20px'}}>
+            <li style = {{display: 'inline-center'}}> Log: </li>
+            <li> -------------------------------</li>
+            {world.history.map((item, index) => (<li key = {index}>{item}</li>))} 
+        </ul>
+        <canvas 
+            ref = {canvasRef}
+            width = {width * tileSize}  
+            height = {height * tileSize}
+            style = {{border: '1px solid black', background: 'DimGray', display: 'block'}}
+        ></canvas> 
+        <ul style = {{listStyle: 'none'}}>
+            <h1> B{world.level}</h1>
+            <li> Health: {world.player.attributes.health} / {world.player.attributes.maxHealth}</li>
+            <li> Attack: {world.player.attributes.attack}</li>
+            <li> Defense: {world.player.attributes.defense}</li>
+            <li> Gold: {world.player.attributes.gold}</li>
+        </ul>
+    </div>
 )};
 
 export default ReactRouge;
