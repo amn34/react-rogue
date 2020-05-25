@@ -22,10 +22,12 @@ class Stairs extends Entity {
             world.moveToSpace(world.player);
             world.entities = world.entities.filter(e => e === world.player);
             let spawner = new Spawner(world);
+            //improves the stats of each monster in the game. 
             spawner.MonsterTable.forEach(monster => {
                 monster.health += 5 * world.level;
                 monster.attack += 3 * world.level;
                 monster.defense += 2 * world.level;
+                monster.reward += 1 * world.level;
             });
 
             spawner.spawnLoot(10);

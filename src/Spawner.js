@@ -10,10 +10,10 @@ class Spawner {
     constructor(world) {
         this.world = world;
         this.MonsterTable = [
-            {type: 'monster', name: 'Ogre', color: 'lightgrey', ascii: 'O', offset: {x: 2, y: 3}, health: 6, attack: 2, defense: 0},
-            {type: 'monster', name: 'Snake', color: 'green', ascii: 'S', offset: {x: 2, y: 3}, health: 3, attack: 2, defense: 0},
-            {type: 'monster', name: 'Rat', color: 'darkgrey', ascii: 'R', offset: {x: 2, y: 3}, health: 2, attack: 1, defense: 0},
-            {type: 'monster', name: 'Penguin', color: 'blue', ascii: 'P', offset: {x: 2, y: 3}, health: 10, attack: 3, defense: 0},
+            {type: 'monster', name: 'Ogre', color: 'lightgrey', ascii: 'O', offset: {x: 2, y: 3}, health: 6, attack: 2, defense: 0, reward: 3},
+            {type: 'monster', name: 'Snake', color: 'green', ascii: 'S', offset: {x: 2, y: 3}, health: 3, attack: 2, defense: 0, reward: 2},
+            {type: 'monster', name: 'Rat', color: 'darkgrey', ascii: 'R', offset: {x: 2, y: 3}, health: 2, attack: 1, defense: 0, reward: 1},
+            {type: 'monster', name: 'Penguin', color: 'blue', ascii: 'P', offset: {x: 2, y: 3}, health: 10, attack: 3, defense: 0, reward: 6},
         ];
         
         this.lootTable = [
