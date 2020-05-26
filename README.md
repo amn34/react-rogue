@@ -1,2 +1,2 @@
-Play at [https://amn34.github.io/react-rogue/](https://amn34.github.io/react-rouge/).
+Play at [https://amn34.github.io/react-rogue/](https://amn34.github.io/react-rogue/).
 
