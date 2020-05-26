@@ -1,2 +1,2 @@
-[Play here](https://amn34.github.io/react-rouge/).
-I know that i can't spell rogue 
+Play at [https://amn34.github.io/react-rouge/](https://amn34.github.io/react-rouge/).
+
