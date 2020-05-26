@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/react-rouge/static/js/main.ebd66d37.chunk.js",
-    "main.js.map": "/react-rouge/static/js/main.ebd66d37.chunk.js.map",
-    "runtime-main.js": "/react-rouge/static/js/runtime-main.c30f98d3.js",
-    "runtime-main.js.map": "/react-rouge/static/js/runtime-main.c30f98d3.js.map",
-    "static/js/2.96c2a986.chunk.js": "/react-rouge/static/js/2.96c2a986.chunk.js",
-    "static/js/2.96c2a986.chunk.js.map": "/react-rouge/static/js/2.96c2a986.chunk.js.map",
-    "index.html": "/react-rouge/index.html",
-    "precache-manifest.913fb330b358fa7b116132f504de14bd.js": "/react-rouge/precache-manifest.913fb330b358fa7b116132f504de14bd.js",
-    "service-worker.js": "/react-rouge/service-worker.js",
-    "static/js/2.96c2a986.chunk.js.LICENSE.txt": "/react-rouge/static/js/2.96c2a986.chunk.js.LICENSE.txt"
+    "main.js": "/react-rogue/static/js/main.b785eb3c.chunk.js",
+    "main.js.map": "/react-rogue/static/js/main.b785eb3c.chunk.js.map",
+    "runtime-main.js": "/react-rogue/static/js/runtime-main.67c3570e.js",
+    "runtime-main.js.map": "/react-rogue/static/js/runtime-main.67c3570e.js.map",
+    "static/js/2.b3aff2fc.chunk.js": "/react-rogue/static/js/2.b3aff2fc.chunk.js",
+    "static/js/2.b3aff2fc.chunk.js.map": "/react-rogue/static/js/2.b3aff2fc.chunk.js.map",
+    "index.html": "/react-rogue/index.html",
+    "precache-manifest.10240e29c44e5941489bbd129ad6417d.js": "/react-rogue/precache-manifest.10240e29c44e5941489bbd129ad6417d.js",
+    "service-worker.js": "/react-rogue/service-worker.js",
+    "static/js/2.b3aff2fc.chunk.js.LICENSE.txt": "/react-rogue/static/js/2.b3aff2fc.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.c30f98d3.js",
-    "static/js/2.96c2a986.chunk.js",
-    "static/js/main.ebd66d37.chunk.js"
+    "static/js/runtime-main.67c3570e.js",
+    "static/js/2.b3aff2fc.chunk.js",
+    "static/js/main.b785eb3c.chunk.js"
   ]
 }
