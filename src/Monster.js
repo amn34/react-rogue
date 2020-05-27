@@ -14,7 +14,7 @@ class Monster extends Entity {
             if(this.attributes.health <= 0) { //monster dies
                 world.addToHistory(`${this.attributes.name} dies!`);
                 world.addToHistory('You collected 1 gold');
-                world.player.attributes.gold += 1;
+                world.player.attributes.gold += this.attributes.reward;
                 world.remove(this);
             } else { //monster lives and counterattacks
                 world.addToHistory(`${this.attributes.name}'s has ${this.attributes.health} health`);
