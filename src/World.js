@@ -1,5 +1,6 @@
 import { Map } from 'rot-js';
 import Player from './Player';
+import Combat from './Combat';
 
 class World {
 
@@ -80,7 +81,7 @@ class World {
             tempMonster.move(dx,dy);
             let entity = this.getEntityAtLocation(tempMonster.x, tempMonster.y);
             if(entity === this.player) {
-                monster.attackPlayer(world);
+                Combat.attack(tempMonster, this.player, world);
                 return;
             } else if(entity) {
                 return;
