@@ -4,12 +4,17 @@ import World from './World.js';
 import Spawner  from './Spawner.js';
 
 const ReactRouge  = ({width, height, tileSize}) => { 
+
+
     const canvasRef = React.useRef(null);
+    //update the world 
     const[world, setWorld] = useState(new World(width, height, tileSize)); 
+    //handles user input
     let inputManager = new InputManager();
 
+
+    //action for user input
     const handleInput = (action, data) => {
-        console.log(`handle input: ${action}:${JSON.stringify(data)}`);
         let newWorld = new World();
         Object.assign(newWorld, world); //deep copy?
         newWorld.movePlayer(data.x, data.y);
@@ -17,12 +22,12 @@ const ReactRouge  = ({width, height, tileSize}) => {
         setWorld(newWorld);
     };
 
+    //creates the map
     useEffect(() => {
-        console.log('Create map');
         let newWorld = new World();
         Object.assign(newWorld, world);
         newWorld.createCellularMap();
-        newWorld.moveToSpace(world.player); //moves the player to a valid space
+        newWorld.moveToSpace(world.player); //moves the player to a open space
         let spawner = new Spawner(newWorld);
         spawner.spawnLoot(10);
         spawner.spawnMonsters(6);
@@ -31,8 +36,15 @@ const ReactRouge  = ({width, height, tileSize}) => {
         //eslint-disable-next-line react-hooks/exhaustive-deps
     }, []); //prevents createmap from being called after every movement
 
+    //draws the map
     useEffect(() => {
-        console.log('Bind input manager');
+        const ctx  = canvasRef.current.getContext('2d');
+        ctx.clearRect(0,0,width * tileSize, height * tileSize);
+        world.draw(ctx, tileSize);
+    });
+
+    //adds key listener
+    useEffect(() => {
         inputManager.bindKeys();
         inputManager.subscribe(handleInput);
         return () =>  {
@@ -40,14 +52,6 @@ const ReactRouge  = ({width, height, tileSize}) => {
             inputManager.unsubscribe(handleInput);
         };
     });
-
-    useEffect(() => {
-        console.log("Draw to the canvas");
-        const ctx  = canvasRef.current.getContext('2d');
-        ctx.clearRect(0,0,width * tileSize, height * tileSize);
-        world.draw(ctx, tileSize);
-    });
-
 
     return (         
     <div style = {{display: 'flex'}}>

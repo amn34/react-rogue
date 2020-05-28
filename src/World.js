@@ -78,7 +78,6 @@ class World {
             let dx = vector.x;
             let dy = vector.y;
             tempMonster.move(dx,dy);
-            console.log('move monster');
             let entity = this.getEntityAtLocation(tempMonster.x, tempMonster.y);
             if(entity === this.player) {
                 monster.attackPlayer(world);
@@ -102,17 +101,16 @@ class World {
 
 
     createCellularMap() {
-        let map = new Map.Cellular(this.width, this.height, {connected:true});
+        var map = new Map.Cellular(this.width, this.height, { connected:true });
         map.randomize(0.5);
-        let userCallback = (x,y,value) => {
-            if(x === 0 || y === 0 || x === this.width -1 || y === this.height - 1) {
-                this.worldmap[x][y] = 1;
+        var userCallback = (x, y, value) => {
+            if(x === 0 || y === 0 || x === this.width - 1 || y === this.height - 1) {
+                this.worldmap[x][y] = 1; //create walls around the edges of the map
                 return;
             }
-            this.worldmap[x][y] = (value === 0) ? 1: 0;
+            this.worldmap[x][y] = value === 0 ? 1: 0;
         };
         map.create(userCallback);
-        //1 is the empty spaces
         map.connect(userCallback, 1);
     }
 
