@@ -1,5 +1,5 @@
 import { Map } from 'rot-js';
-import Player from './Player';
+import Player from './Entities/Player';
 import Combat from './Combat';
 
 class World {
@@ -60,14 +60,11 @@ class World {
         let tempPlayer = this.player.copyPlayer();
         tempPlayer.move(dx,dy);
         let entity = this.getEntityAtLocation(tempPlayer.x, tempPlayer.y);
-        if(entity) {
-            console.log(entity);
+        if(entity) { //if there is another entity then interact with it
             entity.action('bump', this);
             return;
         }
-        if (this.isWall(tempPlayer.x, tempPlayer.y)) {
-            console.log(`Way blocked at ${tempPlayer.x}:${tempPlayer.y}!`);
-        } else {
+        if (!this.isWall(tempPlayer.x, tempPlayer.y)) { //if free space then move player
             this.player.move(dx,dy);
         }
     }
@@ -83,7 +80,7 @@ class World {
             if(entity === this.player) {
                 Combat.attack(tempMonster, this.player, world);
                 return;
-            } else if(entity) {
+            } else if (entity) {
                 return;
             }
             if(!this.isWall(tempMonster.x, tempMonster.y)) {

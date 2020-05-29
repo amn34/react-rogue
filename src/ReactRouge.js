@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import InputManager from './InputManager.js';
 import World from './World.js';
-import Spawner  from './Spawner.js';
+import Spawner  from './Entities/Spawner.js';
 
 const ReactRouge  = ({width, height, tileSize}) => { 
 
@@ -74,6 +74,5 @@ const ReactRouge  = ({width, height, tileSize}) => {
         </ul>
     </div>
 )};
-
 
 export default ReactRouge;

@@ -1,5 +1,5 @@
 import Loot from "./Loot";
-import Monster from "./Monster/Monster";
+import Monster from "./Monster";
 import Stairs from "./Stairs";
 import Shopkeeper from "./Shopkeeper";
 
@@ -11,10 +11,21 @@ class Spawner {
     constructor(world) {
         this.world = world;
         this.MonsterTable = [
-            {type: 'monster', name: 'Ogre', color: 'lightgrey', ascii: 'O', offset: {x: 2, y: 3}, health: 5, attack: 2, defense: 0, reward: 3},
-            {type: 'monster', name: 'Snake', color: 'lightgreen', ascii: 'S', offset: {x: 2, y: 3}, health: 3, attack: 2, defense: 0, reward: 2},
-            {type: 'monster', name: 'Rat', color: 'darkgrey', ascii: 'R', offset: {x: 2, y: 3}, health: 2, attack: 1, defense: 0, reward: 1},
-            {type: 'monster', name: 'Penguin', color: 'blue', ascii: 'P', offset: {x: 2, y: 3}, health: 10, attack: 3, defense: 0, reward: 6},
+            {type: 'monster', name: 'Ogre', color: 'lightgrey', ascii: 'O', offset: {x: 2, y: 3}, 
+                health: 5 + (world.level * 4), attack: 2 + (world.level * 4),
+                defense: 0 + (world.level * 2), reward: 3 + (world.level)},
+
+            {type: 'monster', name: 'Snake', color: 'lightgreen', ascii: 'S', offset: {x: 2, y: 3}, 
+                health: 3 + (world.level * 4), attack: 2 + (world.level * 4), 
+                defense: 0 + (world.level * 2), reward: 2 + (world.level)},
+
+            {type: 'monster', name: 'Rat', color: 'darkgrey', ascii: 'R', offset: {x: 2, y: 3}, 
+                health: 2 + (world.level * 4), attack: 1 + (world.level * 4), 
+                defense: 0 + (world.level * 2), reward: 1 + (world.level)},
+
+            {type: 'monster', name: 'Penguin', color: 'blue', ascii: 'P', offset: {x: 2, y: 3}, 
+                health: 10 + (world.level * 4), attack: 3 + (world.level * 4), 
+                defense: 0 + (world.level * 2), reward: 6 + (world.level)},
         ];
         
         this.lootTable = [

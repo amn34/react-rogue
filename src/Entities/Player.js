@@ -12,6 +12,13 @@ class Player extends Entity{
         gold: 0
     }
 
+
+    action(verb, world) {
+        if(verb === "bump") {
+
+        }
+    }
+
     move(dx, dy) {
         //if the player is dead it can't move
         if(this.attributes.health <= 0) return; 
@@ -29,10 +36,10 @@ class Player extends Entity{
         } else if(item.attributes.name === 'Armor') {
             this.attributes.defense += power;
         } else if(item.attributes.name === 'Gold') {
-            this.attributes.gold += power;
+            this.attributes.gold += power + Math.floor(Math.random() * world.level);
         } else {
             //potion, heals and adds +1 maxhealth
-            power += 4
+            power += 4 + world.level;
             this.attributes.health += power;
             this.attributes.maxHealth += 1;
             //prevents the player from having more health than max health

@@ -13,6 +13,7 @@ class Stairs extends Entity {
 
     action(verb, world) {
         if(verb === 'bump') {
+            //moves down to the next floor
             world.level += 1;
             world.addToHistory('You move down the stairs...');
             world.addToHistory(`You have entered B${world.level}`);
@@ -20,16 +21,9 @@ class Stairs extends Entity {
             world.player.x = 0;
             world.player.y = 0;
             world.moveToSpace(world.player);
+            //clears out the previous map
             world.entities = world.entities.filter(e => e === world.player);
             let spawner = new Spawner(world);
-            //improves the stats of each monster in the game. 
-            spawner.MonsterTable.forEach(monster => {
-                monster.health += 4 * world.level;
-                monster.attack += 4 * world.level;
-                monster.defense += 2 * world.level;
-                monster.reward += 1 * world.level;
-            });
-
             spawner.spawnLoot(10);
             spawner.spawnMonsters(6);
             spawner.spawnStairs();

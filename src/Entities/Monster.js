@@ -1,4 +1,4 @@
-import Entity from "../Entity.js";
+import Entity from "./Entity.js";
 import Combat from "../Combat.js";
 
 class Monster extends Entity {
