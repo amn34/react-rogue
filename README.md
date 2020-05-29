@@ -17,25 +17,25 @@ $ : Gold
 
 ### Monsters
 **R: Rats**
--Health: 2 + (4 * Level)
--Attack: 1 + (4 * Level)
--Defense: 0 + (2 * Level)
--Reward: 1  + (1 * Level)
+- Health: 2 + (4 * Level)
+- Attack: 1 + (4 * Level)
+- Defense: 0 + (2 * Level)
+- Reward: 1  + (1 * Level)
 
 **S:  Snake**
--Health: 3 + (4 * Level)
--Attack: 2 + (4 * Level)
--Defense: 0 + (2 * Level)
--Reward: 2  + (1 * Level)
+- Health: 3 + (4 * Level)
+- Attack: 2 + (4 * Level)
+- Defense: 0 + (2 * Level)
+- Reward: 2  + (1 * Level)
 
 **O: Ogre** 
--Health: 5 + (4 * Level)
--Attack: 2 + (4 * Level)
--Defense: 0 + (2 * Level)
--Reward: 3  + (1 * Level)
+- Health: 5 + (4 * Level)
+- Attack: 2 + (4 * Level)
+- Defense: 0 + (2 * Level)
+- Reward: 3  + (1 * Level)
 
 **P: Penguin**
--Health: 10 + (4 * Level)
--Attack: 3 + (4 * Level)
--Defense: 0 + (2 * Level)
--Reward: 6  + (1 * Level)
+- Health: 10 + (4 * Level)
+- Attack: 3 + (4 * Level)
+- Defense: 0 + (2 * Level)
+- Reward: 6  + (1 * Level)
