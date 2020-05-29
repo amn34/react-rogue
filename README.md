@@ -13,6 +13,8 @@ Traverse the endless dungeon and collect weapons/armor to defeat the enemies you
 
 $ : Gold
 
+Q : Shopkeeper
+
 \> : Stairs to the next floor
 
 ### Monsters
