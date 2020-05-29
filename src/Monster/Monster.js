@@ -1,5 +1,5 @@
-import Entity from "./Entity";
-import Combat from "./Combat";
+import Entity from "../Entity.js";
+import Combat from "../Combat.js";
 
 class Monster extends Entity {
     action(verb, world) {

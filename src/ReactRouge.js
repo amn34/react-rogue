@@ -12,7 +12,6 @@ const ReactRouge  = ({width, height, tileSize}) => {
     //handles user input
     let inputManager = new InputManager();
 
-
     //action for user input
     const handleInput = (action, data) => {
         let newWorld = new World();
@@ -75,5 +74,6 @@ const ReactRouge  = ({width, height, tileSize}) => {
         </ul>
     </div>
 )};
+
 
 export default ReactRouge;

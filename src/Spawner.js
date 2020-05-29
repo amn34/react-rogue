@@ -1,5 +1,5 @@
 import Loot from "./Loot";
-import Monster from "./Monster";
+import Monster from "./Monster/Monster";
 import Stairs from "./Stairs";
 import Shopkeeper from "./Shopkeeper";
 
@@ -24,11 +24,7 @@ class Spawner {
             {type: 'item', name: 'Armor', color: 'lightgrey', ascii: '#', offset: {x: 4, y: 3}}  
         ];
 
-        this.shopTable = [
-            {type: 'shopkeeper', name: 'Kevin', ascii: 'Q', offset: {x:2, y:3}, num: 0},
-            {type: 'shopkeeper', name: 'Omri', ascii: 'Q', offset: {x:2, y:3}, num: 1},
-            {type: 'shopkeeper', name: 'Joey', ascii: 'Q', offset: {x:2, y:3}, num: 2},
-        ];
+        this.shopKeeper = {type: 'shopkeeper', ascii: 'Q', offset: {x:2, y:3}};
     }
 
     spawn(spawnCount, createEntity) {
@@ -65,7 +61,7 @@ class Spawner {
                 getRandomInt(this.world.width - 1),
                 getRandomInt(this.world.height - 1),
                 this.world.tileSize,
-                this.shopTable[getRandomInt(this.shopTable.length)]);
+                this.shopKeeper);
         });
     }
 
