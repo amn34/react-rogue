@@ -1,6 +1,7 @@
 Play at [https://amn34.github.io/react-rogue/](https://amn34.github.io/react-rogue/).
 
 Traverse the endless dungeon and collect weapons/armor to defeat the enemies you encounter. 
+
 Walk into any of the symbols in the game to interact with them.
 ### Entities
 @ : The player character
